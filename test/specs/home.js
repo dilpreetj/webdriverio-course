@@ -1,10 +1,30 @@
-// Practice E-Commerce Site – Automation Bro
-// https://practice.automationbro.com/
+import HomePage from '../pages/home-page';
+import allureReporter from '@wdio/allure-reporter';
+
 
 describe('Home', () => {
-  it('Open URL & assert title', async () => {
+
+  // before(async () => {
+  //   console.log('THIS COULD BE USED FOR TEST SETUP');
+  // })
+
+  beforeEach(async () => {
+    console.log('THIS RUNS BEFORE EACH TEST');
+
     // Open URL
-    await browser.url('https://practice.automationbro.com/');
+    await HomePage.open();
+  })
+
+  // after(async () => {
+  //   console.log('THIS COULD BE USED FOR TEST CLEANUP');
+  // })
+
+  // afterEach(async () => {
+  //   console.log('THIS RUNS AFTER EACH TEST');
+  // })
+
+  it('Open URL & assert title', async () => {
+    allureReporter.addSeverity("minor");
 
     // Assert title
     await expect(browser).toHaveTitle('Practice E-Commerce Site – Automation Bro');
@@ -19,39 +39,32 @@ describe('Home', () => {
   });
 
   it('Click get started btn & assert url contains get-started text', async () => {
-    // Open Home Page
-    await browser.url('https://practice.automationbro.com');
-
     // Click get started button
-    await $('#get-started').click();
+    await HomePage.btnGetStarted.click();
 
     // Assert url contains get-started text
     await expect(browser).toHaveUrlContaining('get-started');
   });
 
   it('Click logo & assert url DOES NOT contains get-started text', async () => {
-    // Open Home Page
-    await browser.url('https://practice.automationbro.com');
+    allureReporter.addFeature("Logo Verification");
 
     // Click logo
-    await $('//img[@alt="Practice E-Commerce Site"]').click();
+    await HomePage.imageLogo.click();
 
     // Assert url does not contains get-started text
     await expect(browser).not.toHaveUrlContaining('get-started');
   });
 
-  it.only('Find heading element & assert the text', async () => {
-    // Open Home Page
-    await browser.url('https://practice.automationbro.com');
-
+  it('Find heading element & assert the text', async () => {
     // find heading element
-    const headingEl = await $('.elementor-widget-container h1');
+    const headingEl = await HomePage.txtHeading;
 
     // get the text
     const headingText = await headingEl.getText();
 
     // Assert the text
-    await expect(headingText).toEqual('Think different. Make different!'); // Jest library
+    await expect(headingText).toEqual('Think different. Make different.'); // Jest library
     // await expect(headingEl).toHaveText('Think different. Make different!'); // wdio expect assertion
   });
 });
