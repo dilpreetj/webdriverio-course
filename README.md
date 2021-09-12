@@ -1,4 +1,4 @@
-# webdriverio-course
+# WebdriverIO
 This repository is part of the WebdriverIO - Complete Beginner Course on Udemy. 
 
 ### Get started
