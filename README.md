@@ -1,0 +1,12 @@
+# webdriverio-course
+This repository is part of the WebdriverIO - Complete Beginner Course on Udemy. 
+
+### Get started
+- Install dependencies:
+`npm install`
+
+- Run tests:
+`npx wdio`
+
+### See the report
+`npx allure open` 
