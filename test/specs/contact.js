@@ -11,6 +11,6 @@ describe("Contact", () => {
 
     // Assert the success message
     const successAlert = ContactPage.alertSuccess;
-    await expect(successAlert).toHaveTextContaining('Thank you for contacting us! We will be in touch with you shortly');
+    await expect(successAlert).toHaveTextContaining('Thanks for contacting us! We will be in touch with you shortly');
   });
 });
