@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@wdio/browserstack-service": "^7.12.5",
     "@wdio/cli": "^7.9.1",
     "allure-commandline": "^2.13.8",
     "faker": "^5.5.3"
